@@ -79,4 +79,13 @@ def printAP(a, d, n):
 
 def printHP(a, d, n):
     hp = []
+    for num in range(n):
+        x = num*d
+        y = a+x
+        if(y == 0):
+            hp.append(0)
+        else:
+            ans = 1/y
+            z = round(ans, 3)
+            hp.append(z)
     return hp

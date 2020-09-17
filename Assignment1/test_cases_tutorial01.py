@@ -1,6 +1,6 @@
 import tutorial01 as A1
 
-actual_answers = [9, 12, 80, 5, 81, [5, 2.5, 0, -2.5, -5]]
+actual_answers = [9, 12, 80, 5, 81, [0.5, 0.25, 0.167, 0.125, 0.1]]
 student_answers = []
 
 test_case_1 = A1.add(4, 5)
@@ -21,11 +21,11 @@ student_answers.append(test_case_5)
 
 # Driver code
 
-a = 5  # starting number
-d = -2.5  # Common ratio
+a = 2  # starting number
+d = 2  # Common ratio
 n = 5  # N th term to be find
 
-gp = A1.printAP(a, d, n)
+gp = A1.printHP(a, d, n)
 gp = list(gp)
 student_answers.append(gp)
 
