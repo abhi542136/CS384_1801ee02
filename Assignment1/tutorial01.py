@@ -51,6 +51,12 @@ def power(num1, num2):  # num1 ^ num2
 
 def printGP(a, r, n):
     gp = []
+    for num in range(n):
+        x = pow(r, num)
+        y = a*x
+        ans = round(y, 3)
+        gp.append(ans)
+
     return gp
 
 # Python 3 program to print AP.  arithmetic Progression
