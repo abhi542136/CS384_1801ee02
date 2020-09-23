@@ -91,6 +91,13 @@ def mse(first_list, second_list):
     mse_value = 0
     n = len(first_list)
     m = len(second_list)
+    for i in first_list:
+        if(isinstance(i, int) == 0 and isinstance(i, float) == 0):
+            return 0
+
+    for i in second_list:
+        if(isinstance(i, int) == 0 and isinstance(i, float) == 0):
+            return 0
 
     if(n == 0 or m == 0):
         return 0
