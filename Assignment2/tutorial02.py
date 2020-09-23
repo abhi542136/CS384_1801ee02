@@ -83,6 +83,16 @@ def skewness(first_list):
 
 def sorting(first_list):
     sorted_list = []
+    new_list = []
+    while first_list:
+        min = first_list[0]
+        if(isinstance(min, int) == 0 and isinstance(min, float) == 0):
+            return new_list
+        for x in first_list:
+            if x < min:
+                min = x
+        sorted_list.append(min)
+        first_list.remove(min)
     # Sorting Logic
     return sorted_list
 
