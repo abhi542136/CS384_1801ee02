@@ -13,7 +13,7 @@ def mean(first_list):
             return 0
         #ans += i
     mean_value = ans/n
-    mean_value = round(mean_value, 3)
+    #mean_value = round(mean_value, 3)
     # mean Logic
     return mean_value
 
@@ -35,11 +35,11 @@ def median(first_list):
     if(n % 2 == 0):
         y = n//2
         sm = (new_list[y]+new_list[y-1])/2
-        median_value = round(sm, 3)
+        median_value = sm
     else:
         z = n//2
         sm = new_list[z]
-        median_value = round(sm, 3)
+        median_value = sm
 
     # median Logic
     return median_value
@@ -67,7 +67,7 @@ def standard_deviation(first_list):
         sm += t
     sm /= n
     z = sm ** 0.5
-    standard_deviation_value = round(z, 3)
+    standard_deviation_value = z
     # Standard deviation Logic
     return standard_deviation_value
 
@@ -78,7 +78,7 @@ def variance(first_list):
     temp_list = first_list.copy()
     ans = standard_deviation(temp_list)
     sm = ans*ans
-    variance_value = round(sm, 3)
+    variance_value = sm
     # variance Logic
     return variance_value
 
@@ -117,7 +117,7 @@ def mse(first_list, second_list):
             return 0
     # mse Logic
     ans = mse_value/n
-    mse_value = round(ans, 3)
+    mse_value = ans
     return mse_value
 
 
@@ -145,6 +145,22 @@ def pcc(first_list, second_list):
 # Function to compute Skewness. You cant use Python functions
 def skewness(first_list):
     skewness_value = 0
+    temp_list = first_list.copy()
+    n = len(temp_list)
+    if(n == 0):
+        return 0
+    for i in temp_list:
+        if(isinstance(i, int) == 0 and isinstance(i, float) == 0):
+            return 0
+    mn = mean(temp_list)
+    sd = standard_deviation(temp_list)
+    ans = 0
+    for i in temp_list:
+        x = (i-mn)/sd
+        y = x ** 3
+        ans += y
+    ans /= n
+    skewness_value = ans
     # Skewness Logic
     return skewness_value
 
@@ -154,6 +170,8 @@ def sorting(first_list):
     temp_list = first_list.copy()
     new_list = []
     n = len(first_list)
+    if(n == 0):
+        return new_list
     i = 0
     while i < n:
         min = temp_list[0]
