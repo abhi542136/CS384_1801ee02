@@ -191,6 +191,23 @@ def sorting(first_list):
 # Function to compute Kurtosis. You cant use Python functions
 def kurtosis(first_list):
     kurtosis_value = 0
+    temp_list = first_list.copy()
+    n = len(temp_list)
+    if(n == 0):
+        return 0
+    for i in temp_list:
+        if(isinstance(i, int) == 0 and isinstance(i, float) == 0):
+            return 0
+
+    mn = mean(temp_list)
+    sd = standard_deviation(temp_list)
+    ans = 0
+    for i in temp_list:
+        x = (i-mn)/sd
+        y = x ** 4
+        ans += y
+    ans /= n
+    kurtosis_value = ans
     # Kurtosis Logic
     return kurtosis_value
 
