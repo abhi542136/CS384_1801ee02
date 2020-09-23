@@ -165,6 +165,32 @@ def mae(first_list, second_list):
 # Function to compute NSE. You cant use Python functions
 def nse(first_list, second_list):
     nse_value = 0
+
+    n = len(first_list)
+    m = len(second_list)
+    if(n != m):
+        return 0
+    if(n == 0):
+        return 0
+    for i in first_list:
+        if(isinstance(i, int) == 0 and isinstance(i, float) == 0):
+            return 0
+
+    for i in second_list:
+        if(isinstance(i, int) == 0 and isinstance(i, float) == 0):
+            return 0
+    ans = 0
+    sm = 0
+    mn = mean(first_list)
+    for x, y in zip(first_list, second_list):
+        i = abs(x-y)
+        z = i ** 2
+        ans += z
+        k = abs(x-mn)
+        k = k ** 2
+        sm += k
+    t = ans/sm
+    nse_value = 1-t
     # nse Logic
     return nse_value
 
