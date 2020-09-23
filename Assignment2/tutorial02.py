@@ -122,6 +122,14 @@ def kurtosis(first_list):
 
 # Function to compute sum. You cant use Python functions
 def summation(first_list):
+    n = len(first_list)
+    if(n == 0):
+        return 0
     summation_value = 0
+    for i in first_list:
+        if(isinstance(i, int) or isinstance(i, float)):
+            summation_value += i
+        else:
+            return 0
     # sum Logic
     return summation_value

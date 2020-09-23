@@ -13,7 +13,7 @@ y = list(y)
 
 test_case_1 = A2.mean(x)
 student_answers.append(test_case_1)
-#ls = [0, 1, 2, 3, 4, 5]
+#ls = [0, 1, 2, 3, 's', 5]
 test_case_2 = A2.median(x)
 student_answers.append(test_case_2)
 
