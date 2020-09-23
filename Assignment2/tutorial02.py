@@ -75,6 +75,10 @@ def standard_deviation(first_list):
 # Function to compute variance. You cant use Python functions
 def variance(first_list):
     variance_value = 0
+    temp_list = first_list.copy()
+    ans = standard_deviation(temp_list)
+    sm = ans*ans
+    variance_value = round(sm, 3)
     # variance Logic
     return variance_value
 
