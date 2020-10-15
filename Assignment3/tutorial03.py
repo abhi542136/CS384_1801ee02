@@ -162,8 +162,19 @@ def state():
 
 
 def blood_group():
-    # Read csv and process
-    pass
+    try:
+        os.makedirs(directory + '/blood_group')
+    except:
+        pass
+    with open('studentinfo_cs384.csv', 'r') as file:
+
+        reader = csv.reader(file)
+        for row in reader:
+            blood = (row[-2])
+            r = directory+"/blood_group/"+str.lower(blood)+'.csv'
+            f = open(r, 'a')
+            writer = csv.writer(f)
+            writer.writerow(row)
 
 
 # Create the new file here and also sort it in this function only.
