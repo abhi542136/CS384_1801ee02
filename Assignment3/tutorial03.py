@@ -178,6 +178,27 @@ def blood_group():
 
 
 # Create the new file here and also sort it in this function only.
+def new_file():
+    with open('studentinfo_cs384_names_split.csv', 'w') as file:
+        writer = csv.writer(file)
+        writer.writerow(['id', 'first_name', 'last_name', 'country',
+                         'email', 'gender', 'dob', 'blood_group', 'state'])
+        with open('studentinfo_cs384.csv', 'r') as file2:
+            reader = csv.reader(file2)
+            next(reader)
+            for read in reader:
+                id = read[0]
+                newname = read[1].split(' ')
+                country = read[2]
+                email = read[3]
+                gender = read[4]
+                dob = read[5]
+                blood_group = read[6]
+                state = read[7]
+                writer.writerow(
+                    [id, newname[0], newname[-1], country, email, gender, dob, blood_group, state])
+
+
 def new_file_sort():
     # Read csv and process
     pass
