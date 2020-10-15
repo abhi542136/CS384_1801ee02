@@ -112,8 +112,37 @@ def gender():
 
 
 def dob():
-    # Read csv and process
-    pass
+    filename = directory+'/dob'
+    try:
+        os.makedirs(filename)
+    except:
+        pass
+    f1 = open(filename+'/bday_1995_1999.csv', 'a')
+    f2 = open(filename+'/bday_2000_2004.csv', 'a')
+    f3 = open(filename + '/bday_2005_2009.csv', 'a')
+    f4 = open(filename + '/bday_2010_2014.csv', 'a')
+    f5 = open(filename + '/bday_2015_21995020.csv', 'a')
+    with open('studentinfo_cs384.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            x = row[-3]
+            y = x.split('-')[-1]
+            if y >= '2015':
+                reader = csv.writer(f1)
+                reader.writerow(row)
+            elif y >= '2010':
+                reader = csv.writer(f2)
+                reader.writerow(row)
+            elif y >= '2005':
+                reader = csv.writer(f3)
+                reader.writerow(row)
+            elif y >= '2000':
+                reader = csv.writer(f4)
+                reader.writerow(row)
+            elif y >= '1995':
+                reader = csv.writer(f5)
+                reader.writerow(row)
 
 
 def state():
