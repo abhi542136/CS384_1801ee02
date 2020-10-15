@@ -98,8 +98,17 @@ def email_domain_extract():
 
 
 def gender():
-    # Read csv and process
-    pass
+    try:
+        os.makedirs(directory+'/gender')
+    except:
+        pass
+    with open('studentinfo_cs384.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            f = open(directory+'/gender/'+row[-4]+".csv", 'a')
+            writer = csv.writer(f)
+            writer.writerow(row)
 
 
 def dob():
