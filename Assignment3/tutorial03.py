@@ -18,12 +18,6 @@ def std(x):
         return "phd"
 
 
-def del_create_analytics_folder():
-    # del the analytics folder including subfolder
-    # mkdir the analytics folder (only mkdir)
-    pass
-
-
 def course():
     with open('studentinfo_cs384.csv', 'r') as file:
         reader = csv.reader(file)
@@ -209,3 +203,7 @@ def new_file_sort():
     sortedlist = sorted(data, key=operator.itemgetter(1))
     for x in sortedlist:
         writer.writerow(x)
+
+
+def del_create_analytics_folder():
+    shutil.rmtree('analytics')
