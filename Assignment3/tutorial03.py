@@ -77,8 +77,24 @@ def country():
 
 
 def email_domain_extract():
-    # Read csv and process
-    pass
+    try:
+        os.makedirs(directory+"/email_domain")
+    except:
+        pass
+    with open('studentinfo_cs384.csv', 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+
+            try:
+                x = (row[3].split('@'))
+
+                f = open(directory+"/email_domain/" +
+                         (x[1].split('.')[0])+".csv", 'a')
+
+                writer = csv.writer(f)
+                writer.writerow(row)
+            except:
+                pass
 
 
 def gender():
