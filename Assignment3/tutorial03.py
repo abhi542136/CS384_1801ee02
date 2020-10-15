@@ -58,8 +58,22 @@ def course():
 
 
 def country():
-    # Read csv and process
-    pass
+    c = directory+"/country"
+    try:
+        os.makedirs(c)
+    except:
+        pass
+    with open('studentinfo_cs384.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            country = str.lower(row[2])
+            try:
+                f = open(directory+"/"+"country/"+country+".csv", 'a')
+                writer = csv.writer(f)
+                writer.writerow(row)
+            except:
+                pass
 
 
 def email_domain_extract():
