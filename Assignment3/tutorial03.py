@@ -200,5 +200,12 @@ def new_file():
 
 
 def new_file_sort():
-    # Read csv and process
-    pass
+    data = csv.reader(open('studentinfo_cs384_names_split.csv', 'r'))
+    next(data)
+    writer = csv.writer(
+        open('studentinfo_cs384_names_split_sorted_first_name.csv', 'w'))
+    writer.writerow(['id', 'first_name', 'last_name', 'country',
+                     'email', 'gender', 'dob', 'blood_group', 'state'])
+    sortedlist = sorted(data, key=operator.itemgetter(1))
+    for x in sortedlist:
+        writer.writerow(x)
