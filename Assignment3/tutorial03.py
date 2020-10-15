@@ -146,8 +146,19 @@ def dob():
 
 
 def state():
-    # Read csv and process
-    pass
+    try:
+        os.makedirs(directory + '/state')
+    except:
+        pass
+    with open('studentinfo_cs384.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            states = (row[-1])
+            t = directory+'/state/'+states+".csv"
+            f = open(t, 'a')
+            writer = csv.writer(f)
+            writer.writerow(row)
 
 
 def blood_group():
