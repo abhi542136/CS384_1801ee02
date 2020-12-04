@@ -15,6 +15,7 @@ class Notepad:
     __thisMenuBar = Menu(__root)
     __thisFileMenu = Menu(__thisMenuBar, tearoff=0)
     __thisEditMenu = Menu(__thisMenuBar, tearoff=0)
+    __thisStatsMenu = Menu(__thisMenuBar, tearoff=0)
     __thisHelpMenu = Menu(__thisMenuBar, tearoff=0)
 
     # To add scrollbar
@@ -77,6 +78,9 @@ class Notepad:
         # To save current file
         self.__thisFileMenu.add_command(label="Save",
                                         command=self.__saveFile)
+        # To save current file as
+        self.__thisFileMenu.add_command(label="Save as",
+                                        command=self.__saveFile)
 
         # To create a line in the dialog
         self.__thisFileMenu.add_separator()
@@ -96,10 +100,36 @@ class Notepad:
         # To give a feature of paste
         self.__thisEditMenu.add_command(label="Paste",
                                         command=self.__paste)
+        # To give a feature of find
+        self.__thisEditMenu.add_command(label="Find",
+                                        command=self.__copy)
+        # To give a feature of find and replace
+        self.__thisEditMenu.add_command(label="Find and Replace",
+                                        command=self.__copy)
 
         # To give a feature of editing
         self.__thisMenuBar.add_cascade(label="Edit",
                                        menu=self.__thisEditMenu)
+
+        # To give a feature of Word Count
+        self.__thisStatsMenu.add_command(label="Word Count",
+                                        command=self.__copy)
+
+        # To give a feature of Char Count
+        self.__thisStatsMenu.add_command(label="Char Count",
+                                         command=self.__copy)
+
+        # To give a feature of Created Time
+        self.__thisStatsMenu.add_command(label="Created Time",
+                                         command=self.__copy)
+
+        # To give a feature of Modified Time
+        self.__thisStatsMenu.add_command(label="Modified Time",
+                                         command=self.__copy)
+
+        # To give a feature of Stats
+        self.__thisMenuBar.add_cascade(label="Stats",
+                                       menu=self.__thisStatsMenu)
 
         # To create a feature of description of the notepad
         self.__thisHelpMenu.add_command(label="About Notepad",
@@ -121,7 +151,7 @@ class Notepad:
     # exit()
 
     def __showAbout(self):
-        showinfo("Notepad", "Mrinal Verma")
+        showinfo("Notepad", "This Notepad is created by Abhishek Kumar and Rishabh Singh")
 
     def __openFile(self):
 
