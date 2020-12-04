@@ -80,7 +80,7 @@ class Notepad:
                                         command=self.__saveFile)
         # To save current file as
         self.__thisFileMenu.add_command(label="Save as",
-                                        command=self.__saveFile)
+                                        command=self.__saveFileAs)
 
         # To create a line in the dialog
         self.__thisFileMenu.add_separator()
@@ -102,10 +102,10 @@ class Notepad:
                                         command=self.__paste)
         # To give a feature of find
         self.__thisEditMenu.add_command(label="Find",
-                                        command=self.__copy)
+                                        command=self.__find)
         # To give a feature of find and replace
         self.__thisEditMenu.add_command(label="Find and Replace",
-                                        command=self.__copy)
+                                        command=self.__findAndReplace)
 
         # To give a feature of editing
         self.__thisMenuBar.add_cascade(label="Edit",
@@ -113,19 +113,19 @@ class Notepad:
 
         # To give a feature of Word Count
         self.__thisStatsMenu.add_command(label="Word Count",
-                                        command=self.__copy)
+                                        command=self.__wordCount)
 
         # To give a feature of Char Count
         self.__thisStatsMenu.add_command(label="Char Count",
-                                         command=self.__copy)
+                                         command=self.__charCount)
 
         # To give a feature of Created Time
         self.__thisStatsMenu.add_command(label="Created Time",
-                                         command=self.__copy)
+                                         command=self.__CreatedTime)
 
         # To give a feature of Modified Time
         self.__thisStatsMenu.add_command(label="Modified Time",
-                                         command=self.__copy)
+                                         command=self.__modifiedTime)
 
         # To give a feature of Stats
         self.__thisMenuBar.add_cascade(label="Stats",
@@ -180,6 +180,34 @@ class Notepad:
         self.__root.title("Untitled - Notepad")
         self.__file = None
         self.__thisTextArea.delete(1.0, END)
+
+    def __saveFileAs(self):
+        pass
+
+
+    def __find(self):
+        pass
+
+
+    def __findAndReplace(self):
+        pass
+
+
+    def __wordCount(self):
+        pass
+
+
+    def __charCount(self):
+        pass
+
+
+    def __CreatedTime(self):
+        pass
+
+
+    def __modifiedTime(self):
+        pass
+
 
     def __saveFile(self):
 
