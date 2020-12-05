@@ -1,6 +1,7 @@
 import tkinter
 import os
 import time
+import os.path
 from tkinter import *
 from tkinter.messagebox import *
 from tkinter.filedialog import *
@@ -152,7 +153,7 @@ class Notepad:
     # exit()
 
     def __showAbout(self):
-        showinfo("Notepad", "This Notepad is created by Abhishek Kumar and Rishabh Singh")
+        showinfo("Notepad", "This Notepad is Created by Abhishek And Rishabh")
 
     def __openFile(self):
 
@@ -183,12 +184,30 @@ class Notepad:
         self.__thisTextArea.delete(1.0, END)
 
     def __saveFileAs(self):
-        f=filedialog.asksaveasfile(mode="w",defaultextension="*.txt")
-        data=self.__thisTextArea.get(1.0,END)
-        f.write(data)
-        f.close()
+        if self.__file == None:
+            # Save as new file
+            self.__file = asksaveasfilename(initialfile='Untitled.txt',
+                                            defaultextension=".txt",
+                                            filetypes=[("All Files", "*.*"),
+                                                       ("Text Documents", "*.txt")])
+
+            if self.__file == "":
+                self.__file = None
+            else:
+
+                # Try to save the file
+                file = open(self.__file, "w")
+                file.write(self.__thisTextArea.get(1.0, END))
+                file.close()
+
+                # Change the window title
+                self.__root.title(os.path.basename(self.__file) + " - Notepad")
 
 
+        else:
+            file = open(self.__file, "w")
+            file.write(self.__thisTextArea.get(1.0, END))
+            file.close()
 
     def __find(self):
         #from tkinter import *
@@ -196,7 +215,7 @@ class Notepad:
         # to create a window
         __root = Tk()
 
-         
+
         # root window is the parent window
         fram = Frame(__root)
 
@@ -446,7 +465,7 @@ class Notepad:
         showinfo("Total Chars:         is/are ", res)
 
     def __CreatedTime(self):
-        t = time.ctime(os.path.getctime(os.path.basename(self.file)))
+        t = time.ctime(os.path.getctime(os.path.basename(self.__file)))
         ct_time = tkinter.Label(ct_frame, text=t)
         showinfo("Created Time:         is ", ct_time)
 
